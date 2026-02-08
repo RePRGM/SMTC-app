@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Show me the counts</title>
-  <meta name="description" content="Why going to class and socials isn’t enough — and how intentional practice actually makes you a better dancer." />
+  <title>Show Me the Counts</title>
+  <meta name="description" content="Train with the music. Break songs into moments, practice with intention, and finally know what to work on as a dancer." />
   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0a3d90e610d1828b65cfc3e44/6267408b20e5cbf7201c0af1d.js");</script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, sans-serif;
@@ -14,134 +17,219 @@
       color: #f5f5f5;
       line-height: 1.7;
     }
-    .container {
-      max-width: 900px;
+    nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 10;
+    }
+    nav .inner {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    nav a {
+      color: #cfcfcf;
+      margin-left: 18px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a:hover { color: #fff; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+
     h1 {
-      font-size: clamp(38px, 6vw, 60px);
-      line-height: 1.15;
-      margin-bottom: 32px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.05;
+      margin-bottom: 20px;
     }
-    h1 span {
+    h1 span, h2 span {
       background: linear-gradient(90deg, #7cffd4, #5fa8ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     h2 {
-      margin-top: 72px;
-      font-size: 28px;
+      font-size: 32px;
+      margin-top: 100px;
+    }
+    h3 {
+      font-size: 22px;
+      margin-top: 0;
     }
     p {
-      color: #d0d0d0;
       font-size: 18px;
+      color: #d0d0d0;
+      max-width: 900px;
     }
-    .highlight {
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 28px;
-      margin: 40px 0;
-    }
-    .cta {
-      margin-top: 80px;
+
+    .hero {
       text-align: center;
+      padding-top: 140px;
+    }
+    .hero p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .email-box {
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     input {
       padding: 16px 18px;
       border-radius: 10px;
       border: none;
-      min-width: 260px;
+      min-width: 280px;
       font-size: 16px;
     }
     button {
       padding: 16px 26px;
       border-radius: 10px;
       border: none;
-      margin-left: 10px;
       background: linear-gradient(90deg, #7cffd4, #5fa8ff);
       color: #000;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
     }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      margin-top: 60px;
+    }
+    .card, .highlight {
+      background: rgba(255,255,255,0.05);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 80px 24px;
+      color: #888;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Why going to class<br/><span>isn’t making you better</span></h1>
 
-    <p>
-      This might sound uncomfortable — but most dancers already know it’s true.
-      You go to class. You go to socials. You go to festivals. You dance a lot.
-      And yet… something still feels missing.
-    </p>
-
-    <p>
-      Your timing feels inconsistent. Certain accents never quite land.
-      You know when someone else looks clean — but you can’t always explain why you don’t.
-    </p>
-
-    <h2>The problem isn’t effort.</h2>
-    <p>The problem is <strong>how</strong> you’re practicing.</p>
-
-    <div class="highlight">
-      <p>
-        Classes are for learning choreography.<br/>
-        Socials are for expression and connection.<br/>
-        Festivals are for inspiration.
-      </p>
-      <p><strong>None of those are designed for deliberate practice.</strong></p>
-    </div>
-
-    <h2>Most dancers don’t know what to practice</h2>
-    <p>
-      You know you <em>should</em> practice — but practice what?
-      The whole song? The whole routine? Just dancing more?
-    </p>
-    <p>
-      Real improvement happens in the details:
-      the 8-count where the groove changes,
-      the accent you keep missing,
-      the transition that feels rushed.
-    </p>
-
-    <h2>This app exists to fix that gap</h2>
-    <p>
-      This isn’t a choreography app. It’s not a class replacement.
-      It’s a training tool for dancers who want to <strong>practice with intention</strong>.
-    </p>
-
-    <div class="highlight">
-      <p>
-        Mark the exact moment you want to work on.<br/>
-        Loop it without breaking flow.<br/>
-        Slow it down to understand it.<br/>
-        Speed it back up to own it.
-      </p>
-    </div>
-
-    <p>
-      It turns vague practice into focused reps.
-      It turns musical awareness into muscle memory.
-      It gives you a clear answer to “what should I practice today?”
-    </p>
-
-    <h2>Built from real frustration</h2>
-    <p>
-      Show Me the Counts exists because writing timestamps in Notes and scrubbing through Spotify is ridiculous —
-      but it’s what dancers have been forced to do for years.
-    </p>
-    <p>
-      This is the missing layer between class and the dance floor.
-    </p>
-
-    <div class="cta">
-      <p style="margin-bottom: 20px; font-size: 20px;">If this sounds like you, get early access.</p>
-      <input type="email" placeholder="Enter your email" />
-      <button>Join the Early List</button>
-      <p style="margin-top: 14px; font-size: 14px; color: #9a9a9a;">No spam. One email when it’s ready.</p>
+<nav>
+  <div class="inner">
+    <strong>The Notetaking App for Dancers</strong>
+    <div>
+      <a href="#why">Why</a>
+      <a href="#how">How It Works</a>
+      <a href="#who">Who It's For</a>
+      <a href="#early">Early Access</a>
     </div>
   </div>
+</nav>
+
+<section class="container hero">
+  <h1><span>The notetaking app</span><br/>for dancers</h1>
+  <p>
+    Train with the music — not just the moves.<br/>
+    Break songs into moments, loop what matters, and practice with intention.
+  </p>
+  <p>
+    Built by a dancer, for dancers who care about timing, musicality, and clean execution — whether you’re social dancing, freestyling, or training for the stage.
+  </p>
+  <div class="email-box">
+    <input type="email" placeholder="Email address" />
+    <button>Get Early Access</button>
+  </div>
+  <p style="margin-top:14px; font-size:14px; color:#9a9a9a;">Early subscribers get first access and launch-only perks. No spam.</p>
+</section>
+
+<section id="why" class="container">
+  <h2>Why dancing more<br/><span>isn’t making you better</span></h2>
+  <p>
+    You go to class. You go to socials. You go to festivals. You dance a lot.
+    And yet… something still feels missing.
+  </p>
+  <p>
+    Your timing feels inconsistent. Certain accents never quite land.
+    You know when someone else looks clean — but you can’t always explain why you don’t.
+  </p>
+
+  <div class="highlight">
+    <p>
+      Classes are the first step — where you’re exposed to new movements, combinations, and ideas.<br/>
+      It’s where you ask questions, get feedback, and get reps in with other dancers.<br/>
+      Socials are for expression and connection.<br/>
+      Festivals are for inspiration.
+    </p>
+    <p><strong>But none of those are designed for deliberate, focused practice.</strong></p>
+  </div>
+</section>
+
+<section id="how" class="container">
+  <h2>Most dancers don’t know<br/><span>what to practice</span></h2>
+  <p>
+    Real improvement happens in the details — the 8-count where the groove changes,
+    the accent you keep missing, the transition that feels rushed.
+  </p>
+
+  <div class="highlight">
+    <p>
+      Mark the exact moment you want to work on.<br/>
+      Loop it without breaking flow.<br/>
+      Slow it down to understand it.<br/>
+      Speed it back up to own it.
+    </p>
+  </div>
+
+  <p>
+    Show Me the Counts turns vague practice into focused reps.
+    It gives you a clear answer to “what should I practice today?”
+  </p>
+</section>
+
+<section id="who" class="container">
+  <h2>Who this is for</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Social dancers</h3>
+      <p>Train musicality, timing, and control so social dancing feels effortless — not rushed or reactive.</p>
+    </div>
+    <div class="card">
+      <h3>Freestyle dancers</h3>
+      <p>Develop cleaner accents, better groove awareness, and intentional movement choices.</p>
+    </div>
+    <div class="card">
+      <h3>Choreographers & teams</h3>
+      <p>Break music down once, drill key moments, and clean routines without wasting studio time.</p>
+    </div>
+  </div>
+</section>
+
+<section id="early" class="container" style="text-align:center;">
+  <h2>Practice with intention</h2>
+  <p>If this sounds like you, join the early access list.</p>
+  <div class="email-box">
+    <input type="email" placeholder="Enter your email" />
+    <button>Join the Early List</button>
+  </div>
+  <p style="margin-top:14px; font-size:14px; color:#9a9a9a;">No spam. One email when it’s ready.</p>
+</section>
+
+<footer>
+  © 2026 · Show Me the Counts
+</footer>
+
 </body>
 </html>
