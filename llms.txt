@@ -1,0 +1,42 @@
+# Show Me the Counts (SMTC)
+
+> Show Me the Counts is a free mobile app for dancers that turns any song into a structured practice tool. Import your own music, mark and name specific sections, loop them on repeat, adjust playback speed from 50% to 150%, and isolate individual instruments using AI-powered stem separation. Built for bachata, salsa, kizomba, zouk, and any dance style.
+
+## Links
+
+- [Homepage](https://showmethecounts.com/): Landing page with features, founder story, FAQ, and download links
+- [Google Play Store](https://play.google.com/store/apps/details?id=com.smtc.mobile): Android app listing
+- [Instagram](https://www.instagram.com/showmethecounts/): Official Instagram account
+
+## Key Facts
+
+- **Category**: Music / Dance Practice
+- **Platform**: Android (iOS coming soon)
+- **Price**: Free with optional Pro subscription ($4.99/month)
+- **Pro Trial**: 7-day free trial
+- **Package ID**: com.smtc.mobile
+
+## Core Features (Free)
+
+- Section creation: Mark, name, and color-code any part of a song
+- Smart looping: Loop any section seamlessly for focused repetition
+- Speed control: Adjust playback from 50% to 150%
+- Offline playback: Works with local music files
+
+## Pro Features
+
+- Stem separation: AI-powered isolation of vocals, bass, drums, and melody
+- Unlimited sections per track
+- Custom tags for organizing sections
+- Section sharing: Share specific sections with other dancers or students
+
+## Target Audience
+
+- Social dancers (bachata, salsa, kizomba, zouk, and all styles)
+- Freestyle dancers training musicality and groove
+- Choreographers and performance teams drilling routines
+- Dance instructors preparing class music and building annotated song libraries
+
+## What Problem It Solves
+
+Most dancers practice by playing a full song and freestyling. SMTC enables deliberate, targeted practice — looping the exact 8-count where you need to be sharper, slowing down a section to understand the feel, or isolating the bass line to train rhythmic awareness. It bridges the gap between knowing moves and knowing when to use them.
