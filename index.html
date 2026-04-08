@@ -14,8 +14,6 @@
 
   <!-- ─── AI DISCOVERY ─── -->
   <link rel="alternate" type="text/plain" href="https://showmethecounts.com/llms.txt" title="LLM-friendly summary" />
-  <!-- TODO: Add Bing Webmaster verification — critical for ChatGPT search visibility -->
-  <!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" /> -->
 
   <!-- ─── OPEN GRAPH ─── -->
   <meta property="og:site_name" content="Show Me the Counts" />
@@ -58,6 +56,15 @@
     "url": "https://showmethecounts.com/",
     "installUrl": "https://play.google.com/store/apps/details?id=com.smtc.mobile",
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.smtc.mobile",
+    "screenshot": [
+      "https://showmethecounts.com/screenshots/Slice_4.jpg",
+      "https://showmethecounts.com/screenshots/Slice_6.jpg",
+      "https://showmethecounts.com/screenshots/Slice_2.jpg",
+      "https://showmethecounts.com/screenshots/Slice_7.jpg",
+      "https://showmethecounts.com/screenshots/Slice_8.jpg",
+      "https://showmethecounts.com/screenshots/Slice_5.jpg",
+      "https://showmethecounts.com/screenshots/Slice_10.jpg"
+    ],
     "softwareVersion": "1.0",
     "datePublished": "2026-03-01",
     "inLanguage": "en",
@@ -218,6 +225,61 @@
         }
       ]
     }
+  }
+  </script>
+
+  <!-- ─── JSON-LD: ImageGallery (for Google Images indexing) ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Show Me the Counts App Screenshots",
+    "description": "Screenshots of the SMTC dance practice app showing section creation, looping, stem separation, speed control, playlist management, and tag-based playback features.",
+    "url": "https://showmethecounts.com/#screenshots",
+    "image": [
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://showmethecounts.com/screenshots/Slice_4.jpg",
+        "name": "SMTC Player — Section looping and playback controls for dance practice",
+        "description": "The SMTC player screen showing named song sections with tags, a waveform progress bar, loop controls, and speed adjustment for targeted dance musicality practice."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://showmethecounts.com/screenshots/Slice_6.jpg",
+        "name": "SMTC Stem Separation — Isolate bass, drums, guitar, or vocals",
+        "description": "The audio source selector in SMTC showing separated stems including bass, drums, guitar, instrumental, and main track for focused instrument listening during dance practice."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://showmethecounts.com/screenshots/Slice_2.jpg",
+        "name": "SMTC Music Library — Organize tracks with playlists and tags",
+        "description": "The SMTC library screen showing imported dance tracks organized by playlists like Favorite Bachatas and Salsa with section and stem counts per track."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://showmethecounts.com/screenshots/Slice_7.jpg",
+        "name": "SMTC Speed Control — Adjust playback from 50% to 150%",
+        "description": "The speed control interface in SMTC allowing dancers to slow down or speed up music playback for learning choreography and building sharpness."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://showmethecounts.com/screenshots/Slice_5.jpg",
+        "name": "SMTC Section Creator — Mark start and end times with notes",
+        "description": "The new section creation form in SMTC where dancers name a section, set precise start and end times, and add practice notes."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://showmethecounts.com/screenshots/Slice_8.jpg",
+        "name": "SMTC Section Looping — Repeat any part of a song instantly",
+        "description": "A song section highlighted for looping in SMTC, showing the repeat toggle active on the Intro section with Sensual and Slow tags."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://showmethecounts.com/screenshots/Slice_10.jpg",
+        "name": "SMTC Tag Playback — Play sections by selected tags across all tracks",
+        "description": "The tag-based playback selector in SMTC showing tags like Sensual, Slow, Instrumental, and High Energy for playing matching sections across an entire music library."
+      }
+    ]
   }
   </script>
 
@@ -476,6 +538,55 @@
     .step__body h3 { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.4rem; padding-top: 0.15rem; }
     .step__body p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; }
 
+    /* ─── SCREENSHOT GALLERY ─── */
+    .screenshots { position: relative; z-index: 1; }
+    .screenshots__track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem 0 2rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-dim) transparent;
+    }
+    .screenshots__track::-webkit-scrollbar { height: 6px; }
+    .screenshots__track::-webkit-scrollbar-track { background: transparent; }
+    .screenshots__track::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 3px; }
+    .screenshot-item {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      width: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .screenshot-item:hover { border-color: var(--accent-dim); transform: translateY(-4px); }
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .screenshot-item__caption {
+      padding: 0.8rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    /* center-pad for first/last items so they can scroll to center */
+    .screenshots__track::before,
+    .screenshots__track::after {
+      content: '';
+      flex: 0 0 max(0px, calc((100vw - var(--content-w)) / 2));
+    }
+    @media (max-width: 600px) {
+      .screenshot-item { width: 200px; }
+    }
+
     /* ─── FEATURES GRID ─── */
     .features { position: relative; z-index: 1; }
     .features__grid {
@@ -608,6 +719,7 @@
       <ul class="nav__links">
         <li><a href="#why">Why</a></li>
         <li><a href="#how">How It Works</a></li>
+        <li><a href="#screenshots">App</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#who">Who It's For</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -727,6 +839,54 @@
         </div>
       </li>
     </ol>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ─── SCREENSHOT GALLERY ─── -->
+  <section class="screenshots section-pad container fade-up" id="screenshots" aria-labelledby="screenshots-heading">
+    <div style="text-align:center;">
+      <span class="section-label">See It In Action</span>
+      <h2 class="section-title" id="screenshots-heading">Built for the <em>studio floor</em></h2>
+    </div>
+    <div class="screenshots__track" role="region" aria-label="App screenshot gallery" tabindex="0">
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_4.jpg" alt="SMTC player screen showing named song sections with Intro, Bridge, and Chorus tags, waveform timeline, loop and speed controls for dance practice" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Player &amp; Sections</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_6.jpg" alt="SMTC audio source selector showing separated stems — bass, drums, guitar, instrumental, and main track for isolating instruments during dance practice" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Stem Separation</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_2.jpg" alt="SMTC music library showing imported dance tracks organized by playlist with section and stem counts per song" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Track Library</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_7.jpg" alt="SMTC playback speed control interface allowing dancers to slow down or speed up music from 50 percent to 150 percent" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Speed Control</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_5.jpg" alt="SMTC new section creation form with section name, start time, end time, pick-from-playback buttons, and practice notes field" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Create Sections</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_8.jpg" alt="SMTC section looping with the Intro section highlighted showing repeat toggle active and Sensual and Slow tags" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Loop Any Part</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_10.jpg" alt="SMTC tag-based playback selector showing Sensual, Slow, Instrumental, and High Energy tags for playing matching sections across all tracks" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Play by Tag</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_9.jpg" alt="SMTC multi-select sections interface with checkboxes for batch play and share actions across Intro, Bridge, and Chorus" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Select &amp; Share</figcaption>
+      </figure>
+      <figure class="screenshot-item">
+        <img src="screenshots/Slice_3.jpg" alt="SMTC new playlist creation dialog for organizing dance practice tracks by style or purpose" width="390" height="844" loading="lazy" />
+        <figcaption class="screenshot-item__caption">Custom Playlists</figcaption>
+      </figure>
+    </div>
   </section>
 
   <hr class="divider" />
@@ -913,9 +1073,6 @@
       <nav class="footer__links" aria-label="Footer links">
         <a href="https://play.google.com/store/apps/details?id=com.smtc.mobile" target="_blank" rel="noopener">Google Play</a>
         <a href="https://www.instagram.com/showmethecounts/" target="_blank" rel="noopener">Instagram</a>
-        <!-- TODO: Uncomment when live -->
-        <!-- <a href="/privacy">Privacy Policy</a> -->
-        <!-- <a href="/terms">Terms</a> -->
       </nav>
     </div>
   </footer>
