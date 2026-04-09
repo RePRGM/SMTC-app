@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Show Me The Counts</title>
+  <meta name="description" content="Terms of Service and End User License Agreement for Show Me The Counts (SMTC), the dance practice app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --obsidian: #0A0A0F;
+      --obsidian-light: #12121A;
+      --obsidian-mid: #1A1A26;
+      --indigo: #6366F1;
+      --indigo-glow: rgba(99, 102, 241, 0.15);
+      --indigo-dim: rgba(99, 102, 241, 0.08);
+      --text-primary: #E4E4ED;
+      --text-secondary: #9494A8;
+      --text-muted: #5E5E72;
+      --border: rgba(255, 255, 255, 0.06);
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      background: var(--obsidian);
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--obsidian);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Top accent line */
+    .accent-bar {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--indigo), transparent);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 64px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--indigo);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
+
+    .brand-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--indigo);
+      box-shadow: 0 0 12px var(--indigo);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .intro {
+      margin-top: 24px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      border-left: 2px solid var(--indigo-glow);
+      padding-left: 20px;
+    }
+
+    /* Sections */
+    .section {
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    h2 .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--indigo);
+      margin-right: 10px;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    h3 .sub-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 8px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    /* Acceptable use list */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 14px;
+    }
+
+    ul li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      padding: 6px 0 6px 24px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 14px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--indigo);
+      opacity: 0.5;
+    }
+
+    /* Caps sections (warranty, liability) */
+    .legal-caps {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.005em;
+      background: var(--indigo-dim);
+      border-radius: 8px;
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+    }
+
+    /* Contact section */
+    .contact-email {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--indigo);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-email:hover {
+      border-bottom-color: var(--indigo);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      color: var(--indigo);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 60px 18px 80px; }
+      .section { margin-top: 36px; padding-top: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<div class="container">
+  <header class="header">
+    <a href="https://showmethecounts.com" class="brand">
+      <span class="brand-dot"></span>
+      Show Me The Counts
+    </a>
+    <h1>Terms of Service</h1>
+    <div class="last-updated">Last Updated: April 9, 2026</div>
+    <p class="intro">These Terms of Service ("Terms") govern your use of Show Me The Counts ("SMTC," "we," "us," or "our"), a mobile application operated by its sole developer and owner. By downloading, installing, or using SMTC, you agree to be bound by these Terms. If you do not agree, do not use the app.</p>
+  </header>
+
+  <div class="section">
+    <h2><span class="num">01</span>Description of Service</h2>
+    <p>SMTC is a mobile dance practice application that provides tools including section looping, playback speed control with pitch correction, stem separation, custom tagging, section sharing, and related audio practice features. The app is available on iOS and Android.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">02</span>License Grant</h2>
+    <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to download, install, and use SMTC on devices you own or control, solely for your personal, non-commercial practice purposes. This license does not grant you any right to sublicense, distribute, modify, reverse engineer, or create derivative works based on the app. All rights not expressly granted are reserved.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">03</span>Eligibility</h2>
+    <p>You must be at least 13 years of age to use SMTC. If you are under 18, you represent that your parent or legal guardian has reviewed and agreed to these Terms on your behalf.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">04</span>Accounts</h2>
+    <p>You may be required to create an account to access certain features. You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account. You agree to provide accurate information and to notify us promptly of any unauthorized use.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">05</span>Subscriptions and Payments</h2>
+
+    <h3><span class="sub-num">5.1</span>Free and Pro Tiers</h3>
+    <p>SMTC offers a free tier with limited functionality and a Pro subscription that unlocks additional features including unlimited sections, stem separation, custom tags, and section sharing.</p>
+
+    <h3><span class="sub-num">5.2</span>Billing</h3>
+    <p>Pro subscriptions are billed on a monthly or annual basis through the Apple App Store or Google Play Store (each, a "Store"). Payment is processed by the applicable Store, not directly by us. All billing is subject to the terms and policies of the respective Store.</p>
+
+    <h3><span class="sub-num">5.3</span>Renewal and Cancellation</h3>
+    <p>Subscriptions automatically renew at the end of each billing period unless you cancel at least 24 hours before the end of the current period. You can manage and cancel your subscription through your Store account settings. No refunds are provided for partial billing periods, except as required by applicable law or Store policy.</p>
+
+    <h3><span class="sub-num">5.4</span>Price Changes</h3>
+    <p>We reserve the right to change subscription pricing. Any price changes will take effect at the start of your next billing cycle, and you will be notified in advance in accordance with Store requirements.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">06</span>User Content</h2>
+
+    <h3><span class="sub-num">6.1</span>Your Music Files</h3>
+    <p>SMTC allows you to import and manipulate audio files for personal practice purposes. You are solely responsible for ensuring that you have the legal right to use any audio content you import into the app. We do not claim ownership of your music files.</p>
+
+    <h3><span class="sub-num">6.2</span>Shared Content</h3>
+    <p>When you share sections via SMTC's sharing features (including <code>.smtc</code> files and deep links), you are responsible for ensuring you have the right to share any associated content. Shared content may reference audio metadata but does not distribute underlying audio files.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">07</span>Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use SMTC for any unlawful purpose or in violation of any applicable law</li>
+      <li>Distribute, publicly perform, or commercially exploit copyrighted audio content through SMTC's features</li>
+      <li>Reverse engineer, decompile, or disassemble the app or its underlying technology</li>
+      <li>Attempt to gain unauthorized access to SMTC's systems or infrastructure</li>
+      <li>Use the app in any manner that could damage, disable, or impair the service</li>
+      <li>Use automated means to access or interact with the app</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">08</span>Intellectual Property</h2>
+    <p>All rights, title, and interest in SMTC — including its design, features, code, branding, and documentation — are owned by the developer of SMTC. The SMTC name, logo, and related marks are our trademarks. Nothing in these Terms grants you any right to use our trademarks without prior written consent.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">09</span>Third-Party Services</h2>
+    <p>SMTC may integrate with or rely on third-party services (such as audio processing APIs, payment processors, and analytics providers). Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the availability, accuracy, or practices of third-party services.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">10</span>Disclaimer of Warranties</h2>
+    <div class="legal-caps">SMTC IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE, OR THAT ANY DEFECTS WILL BE CORRECTED.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">11</span>Limitation of Liability</h2>
+    <div class="legal-caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SMTC AND ITS DEVELOPER SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF SMTC, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.<br><br>OUR TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THESE TERMS OR YOUR USE OF SMTC SHALL NOT EXCEED THE AMOUNT YOU HAVE PAID US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">12</span>Indemnification</h2>
+    <p>You agree to indemnify and hold harmless SMTC and its developer from any claims, damages, losses, liabilities, and expenses (including reasonable attorneys' fees) arising out of or related to your use of SMTC, your violation of these Terms, or your violation of any third-party rights, including intellectual property rights.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">13</span>Termination</h2>
+    <p>We may suspend or terminate your access to SMTC at any time, with or without cause, and with or without notice. Upon termination, your right to use the app ceases immediately. Sections 10 through 14 survive termination.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">14</span>Dispute Resolution and Arbitration</h2>
+
+    <h3><span class="sub-num">14.1</span>Informal Resolution</h3>
+    <p>Before initiating any formal dispute proceeding, you agree to contact us at <a href="mailto:support@showmethecounts.com" class="contact-email">support@showmethecounts.com</a> and attempt to resolve the dispute informally for at least thirty (30) days.</p>
+
+    <h3><span class="sub-num">14.2</span>Binding Arbitration</h3>
+    <p>If we cannot resolve the dispute informally, you and SMTC agree that any dispute, claim, or controversy arising out of or relating to these Terms or your use of the app shall be resolved by binding individual arbitration administered by the American Arbitration Association ("AAA") under its Consumer Arbitration Rules. Arbitration will be conducted on an individual basis, in English, and may be held virtually or in a location mutually agreed upon.</p>
+
+    <h3><span class="sub-num">14.3</span>Class Action Waiver</h3>
+    <div class="legal-caps">YOU AND SMTC AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, CONSOLIDATED, OR REPRESENTATIVE PROCEEDING.</div>
+
+    <h3><span class="sub-num">14.4</span>Exceptions</h3>
+    <p>Either party may bring claims in small claims court if eligible. Nothing in this section prevents either party from seeking injunctive or equitable relief in a court of competent jurisdiction for matters related to intellectual property or unauthorized access to the service.</p>
+
+    <h3><span class="sub-num">14.5</span>Governing Law</h3>
+    <p>These Terms are governed by the laws of the Commonwealth of Virginia, without regard to conflict of law principles.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">15</span>Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The "Last Updated" date at the top reflects the most recent revision. Continued use of SMTC after changes constitutes acceptance of the revised Terms.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">16</span>Contact</h2>
+    <p>If you have questions about these Terms, contact us at:</p>
+    <p><a href="mailto:support@showmethecounts.com" class="contact-email">support@showmethecounts.com</a></p>
+  </div>
+
+  <footer class="footer">
+    <p>These Terms of Service are effective as of April 9, 2026.</p>
+    <p style="margin-top: 8px;"><a href="https://showmethecounts.com">showmethecounts.com</a></p>
+  </footer>
+</div>
+
+</body>
+</html>
