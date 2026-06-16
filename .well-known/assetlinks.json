@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.smtc.mobile",
+      "sha256_cert_fingerprints": ["52:73:35:47:28:17:01:DB:57:9E:C5:64:04:FD:BB:3A:8A:99:DD:91:26:5E:1A:A6:1F:02:8A:E2:D9:55:3A:0B"]
+    }
+  }
+]
