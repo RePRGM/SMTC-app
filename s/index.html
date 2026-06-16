@@ -44,9 +44,11 @@
     const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
     const fmt = (ms) => { const t = Math.floor((ms||0)/1000); return Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); };
 
-    // Slug from the path (/s/<slug>) or a ?slug= query — works on any static host.
-    const slug = (location.pathname.match(/\/s\/([A-Za-z0-9_-]+)/)?.[1]) ||
-                 new URLSearchParams(location.search).get('slug');
+    // Slug from ?share= (default) or ?slug=, falling back to the path form
+    // (/s/<slug>). The query form needs no host rewrite — /s serves this page.
+    const qs = new URLSearchParams(location.search);
+    const slug = qs.get('share') || qs.get('slug') ||
+                 (location.pathname.match(/\/s\/([A-Za-z0-9_-]+)/)?.[1]);
     const isiOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
     const storeUrl = isiOS ? APP_STORE_URL : PLAY_STORE_URL;
 
