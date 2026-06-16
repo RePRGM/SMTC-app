@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "68FZMV54FH.com.smtc.mobile",
-        "paths": ["/s/*"]
+        "paths": ["/s", "/s/*"]
       }
     ]
   }
