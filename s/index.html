@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shared sections · SMTC</title>
+  <!-- Generic Open Graph card. NOTE: per-share OG previews (showing the actual
+       track/section count) need server-side rendering — a static host can't put
+       share-specific data in these tags before a crawler reads them. See README. -->
+  <meta property="og:title" content="Sections shared with you · SMTC" />
+  <meta property="og:description" content="Open in SMTC to add these practice sections to your library." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+           background:#0a0a0b; color:#f4f4f5; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:24px; }
+    .card { width:100%; max-width:420px; background:#16161a; border:1px solid #26262c; border-radius:20px; padding:28px; }
+    h1 { font-size:20px; margin:0 0 4px; }
+    .creator { color:#a78bfa; font-size:14px; margin:0 0 2px; }
+    .track { color:#a1a1aa; font-size:14px; margin:0 0 16px; }
+    .sec { display:flex; justify-content:space-between; background:#1f1f25; border-radius:10px; padding:10px 12px; margin-bottom:6px; font-size:14px; }
+    .sec .t { color:#71717a; font-variant-numeric:tabular-nums; }
+    .btn { display:block; text-align:center; text-decoration:none; font-weight:600; border-radius:12px; padding:14px; margin-top:10px; }
+    .open { background:#6366f1; color:#fff; }
+    .store { background:#1f1f25; color:#f4f4f5; border:1px solid #26262c; }
+    .muted { color:#71717a; font-size:12px; text-align:center; margin-top:14px; }
+    .err { color:#fca5a5; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <p class="muted">Loading shared sections…</p>
+  </div>
+
+  <script>
+    // ── Config: fill these in (both are PUBLIC — anon key is safe in the browser) ──
+    const SUPABASE_URL = 'https://idlftsfydxlnbwxypjtj.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_utafFjo7qcLXuRlM9mGj8A_HHrU3le1';
+    // App store links (fill in once live)
+    const APP_STORE_URL = 'https://apps.apple.com/app/smtc/id6761210319';
+    const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.smtc.mobile';
+
+    const card = document.getElementById('card');
+    const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const fmt = (ms) => { const t = Math.floor((ms||0)/1000); return Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); };
+
+    // Slug from the path (/s/<slug>) or a ?slug= query — works on any static host.
+    const slug = (location.pathname.match(/\/s\/([A-Za-z0-9_-]+)/)?.[1]) ||
+                 new URLSearchParams(location.search).get('slug');
+    const isiOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const storeUrl = isiOS ? APP_STORE_URL : PLAY_STORE_URL;
+
+    async function resolve() {
+      if (!slug) { card.innerHTML = '<p class="err">No share code in this link.</p>'; return; }
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/resolve_share`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+          body: JSON.stringify({ p_slug: slug }),
+        });
+        const rows = await res.json();
+        const b = Array.isArray(rows) ? rows[0] : null;
+        if (!b) { card.innerHTML = '<p class="err">This link is no longer available — it may have expired or been revoked.</p>'; return; }
+
+        const ti = b.track_identity || {};
+        const sections = b.sections || [];
+        card.innerHTML = `
+          <h1>${esc(b.title || 'Shared sections')}</h1>
+          ${b.creator_name ? `<p class="creator">Sections by ${esc(b.creator_name)}</p>` : ''}
+          <p class="track">${esc(ti.name || 'a track')}${ti.artist ? ' · ' + esc(ti.artist) : ''} — ${sections.length} section${sections.length!==1?'s':''}</p>
+          ${sections.slice(0,8).map(s => `<div class="sec"><span>${esc(s.label||'Untitled')}</span><span class="t">${fmt(s.startMs)}–${fmt(s.endMs)}</span></div>`).join('')}
+          <a class="btn open" href="smtc://share/${encodeURIComponent(slug)}">Open in SMTC</a>
+          <a class="btn store" href="${storeUrl}">Get the app</a>
+          <p class="muted">Opening the app imports these sections (duplicates are skipped).</p>`;
+      } catch (e) {
+        card.innerHTML = '<p class="err">Couldn’t load this share. Please try again.</p>';
+      }
+    }
+    resolve();
+  </script>
+</body>
+</html>
